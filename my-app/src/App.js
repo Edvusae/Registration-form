@@ -1,16 +1,19 @@
 import React from 'react';
 import Register from './components/Register';
 import Login from './components/Login';
-import './css/style.css'
+import './css/style.css';
 
 const App = () => {
     return (
-        <div>
+        <div className="app-container">
             <h1>MERN Stack App</h1>
-            <Register />
-            <Login />
+            <div className="form-wrapper">
+                <Register />
+                <Login />
+            </div>
         </div>
     );
 };
 
 export default App;
+
