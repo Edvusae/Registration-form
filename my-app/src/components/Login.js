@@ -2,33 +2,60 @@ import React, { useState } from 'react';
 import axios from 'axios';
 
 const Login = () => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    // 1. Centralized state for form inputs
+    const [formData, setFormData] = useState({
+        username: '',
+        password: '',
+    });
+
+    // 2. Separate state for errors and general messages
+    const [errors, setErrors] = useState({});
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
+
+    // A generic function to handle changes in any input field
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData({ ...formData, [name]: value });
+    };
+
+    // 3. Improved validation logic
+    const validateForm = () => {
+        let isValid = true;
+        let newErrors = {};
+
+        if (!formData.username.trim()) {
+            newErrors.username = 'Username is required.';
+            isValid = false;
+        }
+
+        if (!formData.password.trim()) {
+            newErrors.password = 'Password is required.';
+            isValid = false;
+        }
+
+        setErrors(newErrors);
+        return isValid;
+    };
 
     const handleLogin = async (e) => {
         e.preventDefault();
         setMessage('');
+        setErrors({});
 
-        if (!username || !password) {
-            setMessage("Please fill in all fields.");
+        if (!validateForm()) {
             return;
         }
 
         setLoading(true);
         try {
-            const response = await axios.post('http://localhost:5000/api/auth/login', {
-                username,
-                password,
-            });
+            const response = await axios.post('http://localhost:5000/api/auth/login', formData);
 
             // Optionally store token for future use
             localStorage.setItem('token', response.data.token);
 
             setMessage('✅ Login successful!');
-            setUsername('');
-            setPassword('');
+            setFormData({ username: '', password: '' }); // Clear the form on success
         } catch (error) {
             setMessage(
                 error.response?.data?.error || '❌ Login failed. Please try again.'
@@ -46,19 +73,23 @@ const Login = () => {
                     <label>Username</label><br />
                     <input
                         type="text"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}
+                        name="username" // Add the 'name' attribute
+                        value={formData.username}
+                        onChange={handleChange} // Use the generic handler
                         required
                     />
+                    {errors.username && <p style={{ color: 'red' }}>{errors.username}</p>}
                 </div>
                 <div>
                     <label>Password</label><br />
                     <input
                         type="password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        name="password" // Add the 'name' attribute
+                        value={formData.password}
+                        onChange={handleChange} // Use the generic handler
                         required
                     />
+                    {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
                 </div>
                 <button type="submit" disabled={loading}>
                     {loading ? 'Logging in...' : 'Login'}
