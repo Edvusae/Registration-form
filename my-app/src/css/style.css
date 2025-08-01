@@ -1,25 +1,157 @@
-.app-container {
-  text-align: center;
-  padding: 20px;
-  font-family: Arial, sans-serif;
+/*
+ * This file provides modern, aesthetic styling for a MERN stack authentication app.
+ * It replaces the default "boring" CSS with a more visually appealing design.
+ */
+
+/* ================== General Page Layout and Background ================== */
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #f0f2f5;
+  color: #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
 }
 
+/* ================== App Container and Header ================== */
+.app-container {
+  text-align: center;
+  padding: 40px;
+  max-width: 90%;
+}
+
+.app-container h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 20px;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* ================== Form Wrapper and Card Styling ================== */
 .form-wrapper {
   display: flex;
   justify-content: center;
-  gap: 50px;
+  gap: 40px;
   margin-top: 30px;
+  flex-wrap: wrap; /* Allows forms to wrap on smaller screens */
 }
 
+.form-container {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  flex: 1; /* Allows forms to take up equal space */
+}
+
+.form-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+.form-container h2 {
+  font-size: 1.8rem;
+  color: #2d3748;
+  margin-bottom: 25px;
+}
+
+/* ================== Form Elements and Inputs ================== */
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  max-width: 300px;
-  margin: auto;
+  gap: 15px;
+  text-align: left;
 }
 
-input, button {
-  padding: 10px;
-  font-size: 16px;
+label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #4a5568;
+  margin-bottom: 5px;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 12px 15px;
+  font-size: 1rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+input:focus {
+  outline: none;
+  border-color: #6366f1; /* Accent color on focus */
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+button {
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background-color: #6366f1;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+  background-color: #4f46e5;
+  transform: translateY(-1px);
+}
+
+button:disabled {
+  background-color: #cbd5e0;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* ================== Messages and Links ================== */
+.message {
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: #e53e3e;
+}
+
+.message.success {
+    color: #38a169;
+}
+
+p.error {
+    color: #e53e3e;
+    font-size: 0.85rem;
+    margin-top: 5px;
+}
+
+.form-container p {
+    margin-top: 20px;
+    font-size: 0.9rem;
+}
+
+.form-container p button {
+    background: none;
+    border: none;
+    color: #6366f1;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 0;
+    margin-left: 5px;
+    transition: color 0.3s ease;
+}
+
+.form-container p button:hover {
+    text-decoration: underline;
+    color: #4f46e5;
 }
