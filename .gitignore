@@ -1,5 +1,1 @@
-// Environment variables
-# dotenv
-.env.*
-# Local environment variables
-.env.local 
+.gitignore
