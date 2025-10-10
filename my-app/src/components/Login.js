@@ -8,18 +8,18 @@ const Login = () => {
         password: '',
     });
 
-    // 2. Separate state for errors and general messages
+    // 2. State for errors and messages
     const [errors, setErrors] = useState({});
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
 
-    // A generic function to handle changes in any input field
+    // 3. Generic change handler for all inputs
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
-    // 3. Improved validation logic
+    // A function to validate the form before submission
     const validateForm = () => {
         let isValid = true;
         let newErrors = {};
@@ -38,6 +38,7 @@ const Login = () => {
         return isValid;
     };
 
+    // 4. Handle form submission
     const handleLogin = async (e) => {
         e.preventDefault();
         setMessage('');
@@ -65,6 +66,7 @@ const Login = () => {
         }
     };
 
+    // 5. Render the form
     return (
         <div style={{ maxWidth: '400px', margin: 'auto' }}>
             <h2>Login</h2>
