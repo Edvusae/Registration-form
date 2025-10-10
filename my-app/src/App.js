@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import './css/style.css'; // Assuming your CSS file is here
 
-
-// It now accepts a prop called `onSwitchForm` to tell the App component to switch views.
+// This is the new Register component.
+// It accepts an `onSwitchForm` prop to switch between forms.
 const Register = ({ onSwitchForm }) => {
     const [formData, setFormData] = useState({ username: '', password: '' });
     const [errors, setErrors] = useState({});
@@ -26,17 +26,19 @@ const Register = ({ onSwitchForm }) => {
     };
 
     const handleRegister = async (e) => {
+        // Handle form submission
         e.preventDefault();
         setMessage('');
         setErrors({});
         if (!validateForm()) return;
         setLoading(true);
+        // Submit registration data
         try {
             const response = await axios.post('http://localhost:5000/api/auth/register', formData);
             setMessage(response.data.message);
             setFormData({ username: '', password: '' });
-            // After successful registration, you could automatically switch to the login form
-            // onSwitchForm('login');
+            
+            // Optionally switch to login form after successful registration
         } catch (error) {
             setMessage(error.response?.data?.error || 'Something went wrong. Please try again.');
         } finally {
