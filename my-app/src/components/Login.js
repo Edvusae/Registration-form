@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
+// The Login component
 const Login = () => {
     // 1. Centralized state for form inputs
     const [formData, setFormData] = useState({

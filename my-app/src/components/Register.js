@@ -76,15 +76,17 @@ const Register = () => {
           />
           {errors.username && <p style={{ color: 'red' }}>{errors.username}</p>}
         </div>
+        {/* Password Field */}
         <div>
           <label>Password</label><br />
           <input
             type="password"
-            name="password" // Add the 'name' attribute
+            name="password"
             value={formData.password}
-            onChange={handleChange} // Use the generic handler
+            onChange={handleChange}
             required
           />
+        {/* Display password error if exists */}
           {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
         </div>
         <button type="submit" disabled={loading}>

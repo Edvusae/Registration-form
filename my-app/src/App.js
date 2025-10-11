@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './css/style.css'; // Assuming your CSS file is here
+import './css/style.css';
 
 // This is the new Register component.
 // It accepts an `onSwitchForm` prop to switch between forms.
