@@ -89,11 +89,14 @@ const Register = () => {
         {/* Display password error if exists */}
           {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
         </div>
+        {/* Message Display */}
+        <div>
+          {message && <p style={{ color: 'green' }}>{message}</p>}
+        </div>
         <button type="submit" disabled={loading}>
           {loading ? 'Registering...' : 'Register'}
         </button>
       </form>
-      {message && <p style={{ color: 'green' }}>{message}</p>}
     </div>
   );
 };
