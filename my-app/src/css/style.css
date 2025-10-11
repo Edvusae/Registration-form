@@ -155,3 +155,17 @@ p.error {
     text-decoration: underline;
     color: #4f46e5;
 }
+
+/* ================== Responsive Design ================== */
+@media (max-width: 900px) {
+  .form-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .form-container {
+    max-width: 100%;
+  }
+}
+/* ================== End of CSS ================== */
+/* This CSS file is designed to enhance the visual appeal of a MERN stack authentication application. It provides a modern and clean look with responsive design elements, ensuring usability across various devices. The styles include layout adjustments, form styling, button interactions, and error/message displays to create an engaging user experience. */
