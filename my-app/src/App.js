@@ -20,7 +20,8 @@ const Register = ({ onSwitchForm }) => {
         let isValid = true;
         let newErrors = {};
         if (!formData.username.trim()) { newErrors.username = 'Username is required.'; isValid = false; }
-        if (formData.password.length < 6) { newErrors.password = 'Password must be at least 6 characters.'; isValid = false; }
+        if (formData.password.length < 6) 
+            { newErrors.password = 'Password must be at least 6 characters.'; isValid = false; }
         setErrors(newErrors);
         return isValid;
     };
@@ -63,6 +64,7 @@ const Register = ({ onSwitchForm }) => {
                 <button type="submit" disabled={loading}>{loading ? 'Registering...' : 'Register'}</button>
             </form>
             {message && <p>{message}</p>}
+            {/* Link to switch to Login form */}
             <p>
                 Already have an account?{' '}
                 <button onClick={() => onSwitchForm('login')}>Login here</button>
@@ -79,11 +81,13 @@ const Login = ({ onSwitchForm }) => {
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
 
+    {/* 3. Handle input changes */}
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData({ ...formData, [name]: value });
     };
 
+    {/* 4. Validate form inputs */}
     const validateForm = () => {
         // Validation logic here...
         let isValid = true;
