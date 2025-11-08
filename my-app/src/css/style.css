@@ -1,8 +1,3 @@
-/*
- * This file provides modern, aesthetic styling for a MERN stack authentication app.
- * It replaces the default "boring" CSS with a more visually appealing design.
- */
-
 /* ================== General Page Layout and Background ================== */
 body {
   margin: 0;
@@ -168,4 +163,6 @@ p.error {
   }
 }
 /* ================== End of CSS ================== */
-/* This CSS file is designed to enhance the visual appeal of a MERN stack authentication application. It provides a modern and clean look with responsive design elements, ensuring usability across various devices. The styles include layout adjustments, form styling, button interactions, and error/message displays to create an engaging user experience. */
+/* This CSS file is designed to enhance the visual appeal of a MERN stack authentication application. 
+It provides a modern and clean look with responsive design elements, ensuring usability across various devices. 
+The styles include layout adjustments, form styling, button interactions, and error/message displays to create an engaging user experience. */
