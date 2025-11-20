@@ -52,6 +52,7 @@ const Register = () => {
       const response = await axios.post('http://localhost:5000/api/auth/register', formData);
       setMessage(response.data.message);
       setFormData({ username: '', password: '' }); // Clear the form on success
+
     } catch (error) {
       setMessage(
         error.response?.data?.error || 'Something went wrong. Please try again.'
@@ -71,7 +72,8 @@ const Register = () => {
             type="text"
             name="username" // Add the 'name' attribute
             value={formData.username}
-            onChange={handleChange} // Use the generic handler
+            /* Using generatic handler */
+            onChange={handleChange} 
             required
           />
           {errors.username && <p style={{ color: 'red' }}>{errors.username}</p>}
@@ -86,6 +88,7 @@ const Register = () => {
             onChange={handleChange}
             required
           />
+          
         {/* Display password error if exists */}
           {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
         </div>
