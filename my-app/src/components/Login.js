@@ -38,8 +38,6 @@ const Login = () => {
         setErrors(newErrors);
         return isValid;
     };
-
-    cons
     // 4. Handle form submission
     const handleLogin = async (e) => {
         e.preventDefault();
