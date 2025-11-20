@@ -11,10 +11,15 @@ This project demonstrates a strong understanding of both frontend and backend de
 ## Key Features
 
 -   **Secure User Registration:** New users can create an account. Passwords are securely hashed using `bcrypt` before being stored in the database.
+
 -   **User Login:** Registered users can log in to receive a JSON Web Token (JWT) for session management.
+
 -   **RESTful API:** A well-structured backend API built with Node.js and Express to handle all authentication requests (register, login).
+
 -   **Database Integration:** MongoDB is used for data persistence, managed via Mongoose schemas.
+
 -   **Frontend-Backend Communication:** The React client uses `axios` to make efficient API calls to the server.
+
 -   **Responsive Design:** The interface is built to be clean and functional across different screen sizes.
 
 ---
