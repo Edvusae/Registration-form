@@ -38,6 +38,7 @@ const Login = () => {
         setErrors(newErrors);
         return isValid;
     };
+
     // 4. Handle form submission
     const handleLogin = async (e) => {
         e.preventDefault();
@@ -47,7 +48,7 @@ const Login = () => {
         if (!validateForm()) {
             return;
         }
-
+        // Proceed with login
         setLoading(true);
         try {
             const response = await axios.post('http://localhost:5000/api/auth/login', formData);
@@ -82,13 +83,14 @@ const Login = () => {
                     />
                     {errors.username && <p style={{ color: 'red' }}>{errors.username}</p>}
                 </div>
+                {/* Password Field */}
                 <div>
                     <label>Password</label><br />
                     <input
                         type="password"
-                        name="password" // Add the 'name' attribute
+                        name="password"
                         value={formData.password}
-                        onChange={handleChange} // Use the generic handler
+                        onChange={handleChange}
                         required
                     />
                     {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
