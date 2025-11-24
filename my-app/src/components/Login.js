@@ -94,14 +94,17 @@ const Login = () => {
                         required
                     />
                     {errors.password && <p style={{ color: 'red' }}>{errors.password}</p>}
+                    {/* Display password error if exists */}
                 </div>
+                {/* Submit Button */}
                 <button type="submit" disabled={loading}>
                     {loading ? 'Logging in...' : 'Login'}
                 </button>
             </form>
+            {/* Message Display */}
+            <div>   
             {message && <p>{message}</p>}
-        </div>
-    );
-};
+            </div>
+        </div>;
 
 export default Login;
