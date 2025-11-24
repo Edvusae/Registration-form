@@ -105,6 +105,7 @@ const Login = () => {
             <div>   
             {message && <p>{message}</p>}
             </div>
-        </div>;
-
+        </div>
+    );
+};
 export default Login;
